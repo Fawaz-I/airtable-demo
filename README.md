@@ -178,10 +178,18 @@ npm run build
 
 Set these in your hosting platform:
 
+**For Demo/Showcase (Recommended):**
+
+```env
+VITE_APP_MODE=demo
+```
+
+**For Production with Live AI:**
+
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
 VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
-VITE_APP_MODE=demo
+VITE_APP_MODE=production
 ```
 
 ## 🛠️ Development

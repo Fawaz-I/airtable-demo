@@ -27,11 +27,21 @@
 
 ## Environment Variables for Production
 
+### For Demo/Showcase Deployment (Recommended for most cases):
+
+```env
+VITE_APP_MODE=demo
+```
+
+### For Production with Live AI:
+
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
 VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
-VITE_APP_MODE=demo
+VITE_APP_MODE=production
 ```
+
+**Note**: Demo mode works perfectly for showcasing the app without requiring API keys. The app will use realistic mock responses that demonstrate all functionality.
 
 ## Build Output
 
