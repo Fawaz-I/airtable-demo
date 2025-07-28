@@ -1,200 +1,135 @@
 # AI-Powered Airtable Support Assistant
 
-A lightweight web application that demonstrates how AI can diagnose Airtable formula errors, API issues, and workflow problems, returning clear, customer-facing resolutions.
+A demo web application showcasing how AI can diagnose Airtable formula errors, API issues, and workflow problems. Built as a technical demonstration using React, TypeScript, and modern web development practices.
 
-![Airtable Support Assistant](https://img.shields.io/badge/React-18.2.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0.2-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.3.3-blue) ![Vite](https://img.shields.io/badge/Vite-4.4.5-purple)
+![React](https://img.shields.io/badge/React-18.2.0-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0.2-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.3.3-blue) ![Vite](https://img.shields.io/badge/Vite-4.4.5-purple)
+
+## 🎯 Project Overview
+
+This project demonstrates:
+
+- **Frontend Development**: Modern React with TypeScript and Tailwind CSS
+- **UI/UX Design**: Professional interface matching Airtable's brand guidelines
+- **State Management**: Clean component architecture and data flow
+- **API Integration**: Mock AI service with realistic responses
+- **Responsive Design**: Mobile-first approach with desktop optimization
 
 ## ✨ Features
 
-### 🎯 Core Functionality
+### Core Functionality
 
-- **Error Analysis**: Supports Formula Errors, API Errors, and Workflow Issues
-- **AI Integration**: Real AI analysis via OpenRouter API with fallback to mock responses
+- **Error Analysis**: Support for Formula Errors, API Errors, and Workflow Issues
 - **Demo Mode**: 10 preloaded sample tickets for instant testing
 - **Copy to Clipboard**: One-click copying of suggested fixes
-- **Responsive Design**: Works seamlessly on desktop and mobile
+- **Loading States**: Smooth animations and user feedback
+- **Responsive Design**: Works seamlessly across all devices
 
-### 🎨 UI/UX
+### Technical Highlights
 
-- **Airtable Brand Colors**: Professional blue and gray color scheme
-- **Card-based Layout**: Clean, modern interface design
-- **Loading States**: Smooth animations and progress indicators
-- **Error Handling**: Graceful fallbacks and user-friendly error messages
-
-### 🔧 Technical Features
-
-- **TypeScript**: Full type safety and IntelliSense support
-- **Environment Variables**: Secure API key management
-- **Static Site Ready**: Optimized for Netlify, Vercel, and other static hosts
-- **Mock AI Service**: Works offline with realistic demo responses
+- **TypeScript**: Full type safety and modern development practices
+- **Component Architecture**: Reusable, maintainable React components
+- **Custom Hooks**: Clean separation of logic and presentation
+- **Mock Data Service**: Realistic AI responses for demonstration
+- **Build Optimization**: Production-ready with Vite bundling
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - Node.js 16+ and npm
-- (Optional) OpenRouter API key for live AI integration
 
 ### Installation
-
-1. **Clone and install dependencies:**
 
 ```bash
 git clone <repository-url>
 cd airtable-demo
 npm install
-```
-
-2. **Set up environment variables:**
-
-```bash
-cp .env.example .env
-```
-
-3. **Configure API (Optional):**
-   Edit `.env` file:
-
-```env
-VITE_OPENROUTER_API_KEY=your_openrouter_api_key_here
-VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
-VITE_APP_MODE=demo
-```
-
-4. **Start development server:**
-
-```bash
 npm run dev
 ```
 
-5. **Open your browser:**
-   Navigate to `http://localhost:3000`
+Open your browser to `http://localhost:3000`
 
-## 🎮 Usage
+## 🎮 How to Use
 
-### Demo Mode (Default)
-
-- Toggle **Demo Mode ON** in the header
-- Select from 10 preloaded error examples
-- Instant analysis with mock AI responses
-- Perfect for demonstrations and testing
-
-### Live AI Mode
-
-- Toggle **Demo Mode OFF** in the header
-- Requires OpenRouter API key in `.env`
-- Real AI analysis of custom error messages
-- Automatic fallback to demo responses if API fails
-
-### Error Types Supported
-
-1. **Formula Error**: Syntax errors, data type mismatches, invalid functions
-2. **API Error**: Authentication issues, rate limits, malformed requests
-3. **Workflow Issue**: Automation failures, missing data, script errors
+1. **Select a Demo Error**: Choose from the dropdown of sample Airtable errors
+2. **Or Enter Custom Error**: Type your own error message in the text area
+3. **Choose Error Type**: Select Formula Error, API Error, or Workflow Issue
+4. **Analyze**: Click the "Analyze Error" button
+5. **View Results**: See AI-generated explanation, fix, and optimization tips
+6. **Copy Solution**: Use the copy button to grab the suggested fix
 
 ## 🏗️ Project Structure
 
 ```
-airtable-demo/
-├── src/
-│   ├── components/          # React components
-│   │   ├── Header.tsx       # Navigation with demo toggle
-│   │   ├── ErrorInput.tsx   # Error input form
-│   │   ├── DemoModeSelector.tsx  # Demo ticket selector
-│   │   ├── ResultDisplay.tsx     # AI analysis results
-│   │   └── LoadingSpinner.tsx    # Loading animations
-│   ├── services/           # API and mock services
-│   │   ├── mockAI.ts       # Demo mode responses
-│   │   └── openRouterAPI.ts # Live AI integration
-│   ├── hooks/              # Custom React hooks
-│   │   └── useClipboard.ts # Copy to clipboard functionality
-│   ├── types/              # TypeScript definitions
-│   │   └── index.ts        # App-wide type definitions
-│   ├── data/               # Static data
-│   │   └── demo-data.json  # Sample error tickets
-│   ├── App.tsx             # Main application component
-│   ├── main.tsx            # Application entry point
-│   └── index.css           # Global styles and Tailwind
-├── public/                 # Static assets
-├── .env.example            # Environment variables template
-├── package.json            # Dependencies and scripts
-├── tailwind.config.js      # Tailwind CSS configuration
-├── vite.config.ts          # Vite build configuration
-└── README.md               # This file
+src/
+├── components/          # React components
+│   ├── Header.tsx       # Navigation header
+│   ├── ErrorInput.tsx   # Error input form
+│   ├── DemoModeSelector.tsx  # Demo ticket selector
+│   ├── ResultDisplay.tsx     # AI analysis results
+│   └── LoadingSpinner.tsx    # Loading animations
+├── services/           # Business logic
+│   └── mockAI.ts       # Mock AI response service
+├── hooks/              # Custom React hooks
+│   └── useClipboard.ts # Copy to clipboard functionality
+├── types/              # TypeScript definitions
+│   └── index.ts        # Type definitions
+├── data/               # Static data
+│   └── demo-data.json  # Sample error tickets
+└── App.tsx             # Main application
 ```
 
-## 🔧 Configuration
+## 🛠️ Technical Implementation
 
-### Environment Variables
+### Key Technologies
 
-| Variable                  | Description                    | Default              | Required |
-| ------------------------- | ------------------------------ | -------------------- | -------- |
-| `VITE_OPENROUTER_API_KEY` | OpenRouter API key for live AI | -                    | No\*     |
-| `VITE_OPENROUTER_MODEL`   | AI model to use                | `moonshotai/kimi-k2` | No       |
-| `VITE_APP_MODE`           | Default app mode               | `demo`               | No       |
+- **React 18**: Modern hooks and functional components
+- **TypeScript**: Type-safe development with excellent IDE support
+- **Tailwind CSS**: Utility-first styling with custom design system
+- **Vite**: Fast development server and optimized builds
 
-\*Required only for live AI integration. App works fully in demo mode without API key.
+### Design Patterns
 
-### Customizing Demo Data
+- **Component Composition**: Reusable UI components
+- **Custom Hooks**: Logic separation and reusability
+- **Type Safety**: Comprehensive TypeScript coverage
+- **Responsive Design**: Mobile-first CSS approach
 
-Edit `src/data/demo-data.json` to add your own sample error tickets:
+### Performance Features
 
-```json
-{
-  "id": 11,
-  "type": "Formula Error",
-  "error": "Your custom error message",
-  "explanation": "What's happening explanation",
-  "fix": "Step-by-step fix instructions"
-}
-```
+- **Code Splitting**: Optimized bundle loading
+- **Tree Shaking**: Minimal bundle size
+- **Asset Optimization**: Compressed images and fonts
+- **Fast Refresh**: Instant development feedback
+
+## 🎨 Design System
+
+The application uses a custom design system based on Airtable's brand:
+
+- **Primary Blue**: `#2D7FF9` - Actions and highlights
+- **Gray Scale**: Professional neutral tones
+- **Typography**: Clean, readable font hierarchy
+- **Spacing**: Consistent 8px grid system
+- **Components**: Card-based layout with subtle shadows
+
+## 📱 Responsive Design
+
+- **Mobile First**: Optimized for touch interfaces
+- **Tablet Support**: Adaptive layouts for medium screens
+- **Desktop Enhanced**: Full feature set on large displays
+- **Cross-browser**: Tested on modern browsers
 
 ## 🚀 Deployment
 
-### Static Site Deployment (Recommended)
-
-**Netlify:**
-
-1. Connect your repository to Netlify
-2. Build command: `npm run build`
-3. Publish directory: `dist`
-4. Add environment variables in Netlify dashboard
-
-**Vercel:**
-
-1. Import project to Vercel
-2. Framework preset: Vite
-3. Build command: `npm run build`
-4. Output directory: `dist`
-5. Add environment variables in Vercel dashboard
-
-**Manual Build:**
+The application is optimized for static site deployment:
 
 ```bash
 npm run build
-# Upload 'dist' folder to your hosting provider
 ```
 
-### Environment Variables for Production
+Deploy the `dist` folder to any static hosting service like Netlify, Vercel, or GitHub Pages.
 
-Set these in your hosting platform:
-
-**For Demo/Showcase (Recommended):**
-
-```env
-VITE_APP_MODE=demo
-```
-
-**For Production with Live AI:**
-
-```env
-VITE_OPENROUTER_API_KEY=your_production_api_key
-VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
-VITE_APP_MODE=production
-```
-
-## 🛠️ Development
-
-### Available Scripts
+## 🔧 Development Scripts
 
 ```bash
 npm run dev      # Start development server
@@ -203,95 +138,18 @@ npm run preview  # Preview production build
 npm run lint     # Run ESLint
 ```
 
-### Adding New Error Types
+## 💡 Key Learning Outcomes
 
-1. Update `ErrorType` in `src/types/index.ts`
-2. Add handling in `src/services/mockAI.ts`
-3. Update `src/components/ErrorInput.tsx` dropdown options
+This project demonstrates proficiency in:
 
-### Customizing Styles
-
-The app uses Tailwind CSS with custom Airtable brand colors defined in `tailwind.config.js`:
-
-```javascript
-colors: {
-  airtable: {
-    blue: '#2D7FF9',
-    'blue-dark': '#1E5FCC',
-    'blue-light': '#E6F2FF',
-    gray: '#6B7280',
-    'gray-light': '#F9FAFB',
-    'gray-dark': '#374151',
-  },
-}
-```
-
-## 🔍 API Integration
-
-### OpenRouter Setup
-
-1. Sign up at [OpenRouter](https://openrouter.ai/)
-2. Generate an API key
-3. Add to `.env` file
-4. Choose your preferred model (Claude, GPT-4, etc.)
-
-### Supported Models
-
-- `anthropic/claude-3-haiku` (Fast, cost-effective)
-- `anthropic/claude-3-sonnet` (Balanced performance)
-- `openai/gpt-3.5-turbo` (OpenAI alternative)
-- `openai/gpt-4` (Highest quality)
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**TypeScript Errors:**
-
-```bash
-npm install  # Ensure all dependencies are installed
-```
-
-**API Not Working:**
-
-- Check `.env` file exists and has correct API key
-- Verify API key is valid in OpenRouter dashboard
-- App will fallback to demo mode automatically
-
-**Build Failures:**
-
-```bash
-rm -rf node_modules package-lock.json
-npm install
-npm run build
-```
-
-**Styling Issues:**
-
-```bash
-npm run dev  # Ensure Tailwind is processing correctly
-```
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-For questions or issues:
-
-- Open an issue on GitHub
-- Check the troubleshooting section above
-- Review the demo mode for expected behavior
+- **Modern React Development**: Hooks, functional components, and best practices
+- **TypeScript Integration**: Type safety and developer experience
+- **CSS Architecture**: Scalable styling with Tailwind CSS
+- **Component Design**: Reusable and maintainable UI components
+- **State Management**: Clean data flow and component communication
+- **Build Tools**: Modern development workflow with Vite
+- **Responsive Design**: Mobile-first, cross-device compatibility
 
 ---
 
-**Built with ❤️ using React, TypeScript, and Tailwind CSS**
+**Built with React, TypeScript, and Tailwind CSS**
