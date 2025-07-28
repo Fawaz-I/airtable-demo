@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "type": "Formula Error",
+    "error": "#ERROR! Invalid function: DATEADD expects date as first argument",
+    "explanation": "The DATEADD function expects a valid date, but it received text.",
+    "fix": "Wrap the field in DATETIME_PARSE() or change the field type to Date before passing to DATEADD."
+  },
+  {
+    "id": 2,
+    "type": "Formula Error",
+    "error": "#ERROR! Field \"Order Total\" does not exist",
+    "explanation": "The formula is referencing a field name that has been renamed or deleted.",
+    "fix": "Check field names and update references in the formula to match the current column name."
+  },
+  {
+    "id": 3,
+    "type": "Formula Error",
+    "error": "#ERROR! Division by zero",
+    "explanation": "A formula is dividing by a value that is 0 or blank.",
+    "fix": "Use IF() to check for zero before division, e.g., IF({Quantity} > 0, {Total}/{Quantity}, 0)."
+  },
+  {
+    "id": 4,
+    "type": "API Error",
+    "error": "401 Unauthorized: Invalid API key",
+    "explanation": "The API key is missing, expired, or incorrect.",
+    "fix": "Verify the API key in Airtable’s developer hub and ensure it has permissions for the base."
+  },
+  {
+    "id": 5,
+    "type": "API Error",
+    "error": "422 Unprocessable Entity: Invalid field name \"CustomerEmail\"",
+    "explanation": "The API request includes a field name that doesn’t exist in the base schema.",
+    "fix": "Check field names in Airtable and update the API payload to use valid field IDs or names."
+  },
+  {
+    "id": 6,
+    "type": "API Error",
+    "error": "429 Too Many Requests: Rate limit exceeded",
+    "explanation": "The number of requests per second has exceeded Airtable’s API rate limit.",
+    "fix": "Implement retry logic with exponential backoff and reduce the frequency of requests."
+  },
+  {
+    "id": 7,
+    "type": "Workflow Issue",
+    "error": "Automation script failed due to missing linked record",
+    "explanation": "The script is referencing a linked record that doesn’t exist.",
+    "fix": "Ensure the linked table has the required record before running the automation."
+  },
+  {
+    "id": 8,
+    "type": "Workflow Issue",
+    "error": "Script error: Cannot read property 'name' of undefined",
+    "explanation": "The automation script is attempting to access a property from a null or missing record.",
+    "fix": "Add null checks and validate record existence before referencing fields."
+  },
+  {
+    "id": 9,
+    "type": "Workflow Issue",
+    "error": "Automation failed: Email action has no recipient",
+    "explanation": "The automation’s 'Send Email' action is missing a valid email address.",
+    "fix": "Ensure the email field is populated and correctly mapped in the automation step."
+  },
+  {
+    "id": 10,
+    "type": "Workflow Issue",
+    "error": "Scheduled automation did not run at expected time",
+    "explanation": "The automation was paused or the schedule did not align with the timezone settings.",
+    "fix": "Confirm the automation is active, verify the schedule, and check timezone settings in Airtable."
+  }
+]
