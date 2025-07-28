@@ -38,6 +38,7 @@ VITE_APP_MODE=demo
 ```
 
 This is the **recommended approach** for most deployments. Demo mode:
+
 - ✅ Works without API keys
 - ✅ No security risks
 - ✅ Shows realistic mock responses
@@ -49,13 +50,14 @@ This is the **recommended approach** for most deployments. Demo mode:
 
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
-VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
+VITE_OPENROUTER_MODEL=your_preferred_model
 VITE_APP_MODE=production
 ```
 
 ### Secure Alternative for Live AI:
 
 For production use with real AI, implement a backend API that:
+
 1. Keeps API keys server-side
 2. Provides a secure endpoint for your frontend
 3. Implements rate limiting and authentication

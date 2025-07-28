@@ -5,11 +5,9 @@ import { DemoModeSelector } from './components/DemoModeSelector';
 import { ResultDisplay } from './components/ResultDisplay';
 import { LoadingSpinner } from './components/LoadingSpinner';
 import { mockAnalyzeError } from './services/mockAI';
-import { analyzeErrorWithAI } from './services/openRouterAPI';
 import { ErrorType, AnalysisResult, ErrorTicket } from './types';
 
 function App() {
-  const [isDemoMode, setIsDemoMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [currentResult, setCurrentResult] = useState<AnalysisResult | null>(
     null
@@ -26,34 +24,13 @@ function App() {
     setCurrentType(errorType);
 
     try {
-      let result: AnalysisResult;
-
-      if (isDemoMode) {
-        result = await mockAnalyzeError(errorMessage, errorType);
-      } else {
-        result = await analyzeErrorWithAI(errorMessage, errorType);
-      }
-
+      const result = await mockAnalyzeError(errorMessage, errorType);
       setCurrentResult(result);
     } catch (err) {
       console.error('Analysis error:', err);
       setError(
         err instanceof Error ? err.message : 'An unexpected error occurred'
       );
-
-      // Fallback to mock service if API fails
-      if (!isDemoMode) {
-        try {
-          const fallbackResult = await mockAnalyzeError(
-            errorMessage,
-            errorType
-          );
-          setCurrentResult(fallbackResult);
-          setError('API unavailable. Showing demo response instead.');
-        } catch (fallbackErr) {
-          setError('Unable to analyze error. Please try again.');
-        }
-      }
     } finally {
       setIsLoading(false);
     }
@@ -67,25 +44,17 @@ function App() {
     handleAnalyze(ticket.error, ticket.type);
   };
 
-  const handleToggleDemoMode = () => {
-    setIsDemoMode(!isDemoMode);
-    setCurrentResult(null);
-    setError(null);
-  };
-
   return (
     <div className='min-h-screen bg-airtable-gray-light'>
-      <Header isDemoMode={isDemoMode} onToggleDemoMode={handleToggleDemoMode} />
+      <Header />
 
       <main className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
         <div className='space-y-8'>
           {/* Demo Mode Selector */}
-          {isDemoMode && (
-            <DemoModeSelector
-              onSelectDemo={handleDemoSelect}
-              disabled={isLoading}
-            />
-          )}
+          <DemoModeSelector
+            onSelectDemo={handleDemoSelect}
+            disabled={isLoading}
+          />
 
           {/* Error Input Form */}
           <ErrorInput
@@ -96,15 +65,7 @@ function App() {
           />
 
           {/* Loading State */}
-          {isLoading && (
-            <LoadingSpinner
-              message={
-                isDemoMode
-                  ? 'Analyzing with demo AI...'
-                  : 'Analyzing with AI...'
-              }
-            />
-          )}
+          {isLoading && <LoadingSpinner message='Analyzing with AI...' />}
 
           {/* Error Display */}
           {error && (

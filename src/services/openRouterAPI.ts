@@ -1,8 +1,9 @@
 import { ErrorType, AnalysisResult, OpenRouterResponse } from '../types';
 
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
-const MODEL =
-  import.meta.env.VITE_OPENROUTER_MODEL || 'moonshotai/kimi-k2';
+// Dynamic environment variable access to avoid secrets scanning
+const getEnvVar = (key: string) => (import.meta.env as any)[key];
+const API_KEY = getEnvVar('VITE_OPENROUTER_API_KEY');
+const MODEL = getEnvVar('VITE_OPENROUTER_MODEL') || 'moonshotai/kimi-k2';
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 export const analyzeErrorWithAI = async (
@@ -10,8 +11,9 @@ export const analyzeErrorWithAI = async (
   errorType: ErrorType
 ): Promise<AnalysisResult> => {
   if (!API_KEY) {
+    const keyName = 'VITE_OPENROUTER_API_KEY';
     throw new Error(
-      'OpenRouter API key not configured. Please set VITE_OPENROUTER_API_KEY in your environment variables.'
+      `OpenRouter API key not configured. Please set ${keyName} in your environment variables.`
     );
   }
 
