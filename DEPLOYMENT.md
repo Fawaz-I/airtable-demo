@@ -27,13 +27,25 @@
 
 ## Environment Variables for Production
 
-### For Demo/Showcase Deployment (Recommended for most cases):
+### ⚠️ SECURITY WARNING
+
+**IMPORTANT**: Vite environment variables prefixed with `VITE_` are embedded into the client-side bundle and are visible to anyone who inspects your website. **Never put real API keys in `VITE_` environment variables for production deployments.**
+
+### For Demo/Showcase Deployment (Recommended):
 
 ```env
 VITE_APP_MODE=demo
 ```
 
-### For Production with Live AI:
+This is the **recommended approach** for most deployments. Demo mode:
+- ✅ Works without API keys
+- ✅ No security risks
+- ✅ Shows realistic mock responses
+- ✅ Demonstrates all functionality perfectly
+
+### For Production with Live AI (NOT RECOMMENDED for client-side apps):
+
+**⚠️ WARNING**: This exposes your API key to all website visitors!
 
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
@@ -41,7 +53,14 @@ VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
 VITE_APP_MODE=production
 ```
 
-**Note**: Demo mode works perfectly for showcasing the app without requiring API keys. The app will use realistic mock responses that demonstrate all functionality.
+### Secure Alternative for Live AI:
+
+For production use with real AI, implement a backend API that:
+1. Keeps API keys server-side
+2. Provides a secure endpoint for your frontend
+3. Implements rate limiting and authentication
+
+**Recommendation**: Use demo mode for showcases and implement a proper backend for production use with real API keys.
 
 ## Build Output
 
