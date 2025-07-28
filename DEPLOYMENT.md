@@ -29,7 +29,7 @@
 
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
-VITE_OPENROUTER_MODEL=anthropic/claude-3-haiku
+VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
 VITE_APP_MODE=demo
 ```
 

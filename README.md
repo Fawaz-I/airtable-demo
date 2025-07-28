@@ -56,7 +56,7 @@ cp .env.example .env
 
 ```env
 VITE_OPENROUTER_API_KEY=your_openrouter_api_key_here
-VITE_OPENROUTER_MODEL=anthropic/claude-3-haiku
+VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
 VITE_APP_MODE=demo
 ```
 
@@ -126,11 +126,11 @@ airtable-demo/
 
 ### Environment Variables
 
-| Variable                  | Description                    | Default                    | Required |
-| ------------------------- | ------------------------------ | -------------------------- | -------- |
-| `VITE_OPENROUTER_API_KEY` | OpenRouter API key for live AI | -                          | No\*     |
-| `VITE_OPENROUTER_MODEL`   | AI model to use                | `anthropic/claude-3-haiku` | No       |
-| `VITE_APP_MODE`           | Default app mode               | `demo`                     | No       |
+| Variable                  | Description                    | Default              | Required |
+| ------------------------- | ------------------------------ | -------------------- | -------- |
+| `VITE_OPENROUTER_API_KEY` | OpenRouter API key for live AI | -                    | No\*     |
+| `VITE_OPENROUTER_MODEL`   | AI model to use                | `moonshotai/kimi-k2` | No       |
+| `VITE_APP_MODE`           | Default app mode               | `demo`               | No       |
 
 \*Required only for live AI integration. App works fully in demo mode without API key.
 
@@ -180,7 +180,7 @@ Set these in your hosting platform:
 
 ```env
 VITE_OPENROUTER_API_KEY=your_production_api_key
-VITE_OPENROUTER_MODEL=anthropic/claude-3-haiku
+VITE_OPENROUTER_MODEL=moonshotai/kimi-k2
 VITE_APP_MODE=demo
 ```
 
